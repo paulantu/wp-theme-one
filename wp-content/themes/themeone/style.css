@@ -1,0 +1,75 @@
+/* 
+
+Theme Name: Theme One
+Theme URL: 
+Author: Antu Paul
+Author URL: http://www.antupaul.com/
+Description: My first Wordpress theme.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URL: http://www.gnu.org/license/gpl-2.0.html
+Tags: blog, education,
+Text Domain: themeone
+
+*/
+
+
+
+/*
+   
+    Template Name : Basic Blog Template
+    Author : w3devzone team
+    Website : http://www.w3devzone.com/
+    Support : http://www.w3devzone.com/support/
+	
+	
+*/
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap');
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.top-header p{
+    color: #122033;
+    font-size: 15px;
+    font-weight:18px;
+    padding-top: 80px;
+}
+.top-header h1{
+    color: #122033;
+    font-size: 150px;
+    margin-top: -20px;
+}
+.basic-post-display{
+    padding: 30px 0;
+}
+.basic-post-title{
+    padding: 0px 0px 20px 0px;
+}
+.basic-post-title h3{
+    font-style: normal;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 32px;
+}
+.basic-post-author-name{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+
+
+.basic-footer{
+    background-color: #122033;
+    color: #ffffff;
+    min-height: 50px;
+    padding-top: 15px;
+}
+
+

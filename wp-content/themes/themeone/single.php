@@ -1,0 +1,119 @@
+<?php
+    get_header();
+?>
+<body <?php body_class(); ?>>
+    
+    <?php
+     get_template_part("hero");
+    ?>
+    
+        <hr>
+
+
+    <main class="container">
+
+
+    <?php
+        while(have_posts()){
+            the_post();
+        ?>
+
+            <div class="basic-post-display" <?php post_class(); ?>>
+                <div class="row">
+
+                <div class="col-8">
+                <div class="basic-post-title">
+                        <h3><?php the_title(); ?></h3>
+                        <h3 class="basic-post-author-name"><?php the_author(); ?></h3>
+                        <p class="basic-post-publishing-date"><?php the_date(); ?></p>
+                        <span class="basic-post-author-location">
+                            <?php
+                                echo get_the_tag_list("<span class=\"badge bg-warning\">", "&nbsp;&nbsp;&nbsp;", "</span>");
+                            ?>
+                        </span>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+
+                            <?php
+                                if(has_post_thumbnail()){
+                                    the_post_thumbnail("full", "class=img-fluid");
+                                }else{
+                                    ?>
+
+                                    <img src="https://images.pexels.com/photos/9571276/pexels-photo-9571276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid" alt="post image" srcset="">
+
+                                    <?php
+                                }
+                            ?>
+                        
+                        <p class="basic-post-descriotion">
+                            <?php 
+                                the_content();
+                            ?>
+                        </p>
+                    </div>
+
+                    <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="basic-previous-or-next-post-link">
+                        <div class="row">
+                                <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                                    <?php
+                                        previous_post_link();
+                                    ?>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="text-end">
+                                        <?php
+                                            next_post_link();
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-4">
+                    <?php
+                         if(is_active_sidebar("single_post_right_sidebar")){
+                            dynamic_sidebar("single_post_right_sidebar");
+                         }
+                    ?>
+
+                </div>
+                    
+                </div>
+            </div>
+
+        <?php
+        }
+    ?>
+
+        
+
+
+
+            <section class="basic-post-comment-section">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+
+                        <div class="basic-post-pagination mt-3 mb-3">
+                            <?php 
+                            // If comments are open or we have at least one comment, load up the comment template.
+                                if ( comments_open() || get_comments_number() ) :
+                                    comments_template();
+                                endif;
+                            ?>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        
+    </main>
+
+<?php
+    get_footer();
+?>
