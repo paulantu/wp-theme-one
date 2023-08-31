@@ -1,5 +1,17 @@
 <?php
 
+
+// Solution for the Cashing Issue
+if(site_url() == "http://themedevone.test"){
+    define("VERSION" , time());
+}else{
+    define("VERSION", wp_get_theme()->get("Version"));
+}
+
+
+
+
+// Basic theme configuration
 function themeone_bootstraping(){
     load_theme_textdomain("themeone");
     add_theme_support("post_thumbnails");
@@ -10,14 +22,25 @@ add_action("after_setup_theme", "themeone_bootstraping");
 
 
 
+
+
+// Basic theme assets connection
 function themeone_assets(){
-    wp_enqueue_style( 'style', get_stylesheet_uri() );
+    wp_enqueue_style( 'style', get_stylesheet_uri(), null, VERSION );
     wp_enqueue_style("bootstrap", "//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
+    wp_enqueue_style("fetherlight-css", "//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css");
+    
+
+    wp_enqueue_script("fetherlight-js", "//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js", array("jquery"), VERSION, true);
 }
 
 add_action("wp_enqueue_scripts", "themeone_assets");
 
 
+
+
+
+// Theme Sidebar Configuration
 function themeone_sidebar(){
     register_sidebar(array(
         'name' => __('single post right sidebar', 'themeone'),
@@ -31,3 +54,32 @@ function themeone_sidebar(){
 }
 
 add_action("widgets_init", "themeone_sidebar");
+
+
+
+
+
+// Theme menu register
+function themeone_register_my_menus() {
+    register_nav_menus(
+      array(
+        'header-menu' => __( 'Header Menu' ),
+        'extra-menu' => __( 'Extra Menu' ),
+        'footer-menu' => __( 'Footer Menu' ),
+       )
+     );
+   }
+   add_action( 'init', 'themeone_register_my_menus' );
+
+
+
+
+
+
+// Theme menu css class add
+   function filter_handler( $classes, $item, $args, $depth ) {
+    $classes[] = 'list-inline-item';
+    return $classes;
+   }
+
+add_filter( 'nav_menu_css_class', 'filter_handler', 10, 4 );

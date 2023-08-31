@@ -36,11 +36,15 @@
 
                             <?php
                                 if(has_post_thumbnail()){
+                                    $post_thumbnail = get_the_post_thumbnail_url(null, "Large");
+                                    echo "<a href=\"$post_thumbnail\" data-featherlight=\"image\">";
                                     the_post_thumbnail("full", "class=img-fluid");
+                                    echo "</a>";
                                 }else{
                                     ?>
-
-                                    <img src="https://images.pexels.com/photos/9571276/pexels-photo-9571276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid" alt="post image" srcset="">
+                                    <a href="https://images.pexels.com/photos/9571276/pexels-photo-9571276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" data-featherlight="image">
+                                        <img src="https://images.pexels.com/photos/9571276/pexels-photo-9571276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid" alt="post image" srcset="">
+                                    </a>
 
                                     <?php
                                 }
