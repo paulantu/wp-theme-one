@@ -16,6 +16,20 @@ function themeone_bootstraping(){
     load_theme_textdomain("themeone");
     add_theme_support("post_thumbnails");
     add_theme_support("title_tag");
+    $themeone_custom_header_details = array(
+        "header_text" => true,
+        "default-text-color" => "#000000",
+        "width" => 1200,
+        "height" => 600,
+        "flex-width" => true,
+        "flex-height" => true,
+    );
+    add_theme_support("custom-header", $themeone_custom_header_details);
+    $themeone_custom_logo_defaults = array(
+        "width" => 100,
+        "height" => 100, 
+    );
+    add_theme_support("custom-logo", $themeone_custom_logo_defaults);
 }
 
 add_action("after_setup_theme", "themeone_bootstraping");
@@ -83,3 +97,40 @@ function themeone_register_my_menus() {
    }
 
 add_filter( 'nav_menu_css_class', 'filter_handler', 10, 4 );
+
+
+
+
+
+
+function themeone_custom_header_setup(){
+    if(is_front_page()){
+        if(current_theme_supports("custom-header")){
+           ?>
+
+            <style>
+                .top-header{
+                    background-image: url(<?php echo header_image(); ?>);
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                .top-header p, .top-header h1{
+                    color: #<?php echo get_header_textcolor();?>;
+
+                    <?php
+                    if(!display_header_text()){
+                        echo "display: none;";
+                    }
+                    ?>
+                }
+            </style>
+
+
+            <?php
+        }
+    }
+}
+
+
+add_action("wp_head", "themeone_custom_header_setup",11);

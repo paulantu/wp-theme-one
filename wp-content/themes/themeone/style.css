@@ -73,3 +73,19 @@ body{
 }
 
 
+
+
+
+
+.header-logo-section{
+    padding-top: 50px;
+}
+.header-logo-section img{
+    border-radius: 50%;
+}
+
+
+
+.error-view{
+    padding: 155px 0px;
+}
