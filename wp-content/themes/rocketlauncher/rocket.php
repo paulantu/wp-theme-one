@@ -10,7 +10,18 @@ Template Name: Rocket Comming soon Template
 
 
 
-<?php get_header()?>
+<?php 
+
+the_post();
+get_header();
+
+
+$placeholder_text = get_post_meta(get_the_ID(),"placeholder_",true);
+$button_label = get_post_meta(get_the_ID(),"button_name",true);
+$hints_text = get_post_meta(get_the_ID(),"hints_message",true);
+
+
+?>
 
 
 
@@ -97,13 +108,13 @@ Template Name: Rocket Comming soon Template
                                                             <div class="col col-md-9 col-lg-9">
                                                                 <div class="row">
                                                                     <div class="mb-3 rocket-email-input-box">
-                                                                        <input type="email" class="form-control" id="email" name="email">
+                                                                        <input type="email" class="form-control" id="email" name="email" placeholder="<?php echo esc_attr($placeholder_text); ?>">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col col-md-3 col-lg-3">
                                                                 <div class="row rocket-form-submit-button">
-                                                                    <button type="submit" class="btn btn-primary">Send</button>
+                                                                    <button type="submit" class="btn btn-primary"><?php echo esc_attr($button_label); ?></button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -113,7 +124,7 @@ Template Name: Rocket Comming soon Template
                                                 </div>
             
                                             </form>
-                                            <small>Please enter your email address for early access.</small>
+                                            <small><?php echo esc_attr($hints_text); ?></small>
                                         </section>
                                     </div>
             

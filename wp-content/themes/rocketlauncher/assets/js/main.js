@@ -1,10 +1,18 @@
 
-function nextMonthCountDown(date, month){
-    date.setMonth(date.getMonth() + month)
-    return date;
-}
+// function nextMonthCountDown(date, month){
+//     date.setMonth(date.getMonth() + month)
+//     return date;
+// }
 
-var countDownUntil = nextMonthCountDown(new Date(), 1)
+// var countDownUntil = nextMonthCountDown(new Date(), 1)
+
+
+
+
+var countDownUntil = rocketlaunchingtime.dateTime;
+var javaScriptTimestamp = countDownUntil * 1000;
+console.log(javaScriptTimestamp);
+
 
 
 var intervalTime = setInterval(function(){
