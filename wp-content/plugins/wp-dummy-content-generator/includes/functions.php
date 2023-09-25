@@ -2,10 +2,10 @@
 add_action('admin_menu', 'wp_dummy_content_generatorDashboard');
 function wp_dummy_content_generatorDashboard(){
     add_menu_page( 'wp_dummy_content_generator dashboard', 'Dummy Content Generator', 'manage_options', 'wp_dummy_content_generator-dashboard', 'wp_dummy_content_generatorMainDashboard','dashicons-database-view',58);
-    add_submenu_page ( 'wp_dummy_content_generator-dashboard', 'Users', 'Users', 'read', 'wp_dummy_content_generator-users', 'wp_dummy_content_generatorUsers');
-    add_submenu_page ( 'wp_dummy_content_generator-dashboard', 'Posts', 'Posts', 'read', 'wp_dummy_content_generator-posts', 'wp_dummy_content_generatorPosts');
-    add_submenu_page ( 'wp_dummy_content_generator-dashboard', 'Products', 'Products', 'read', 'wp_dummy_content_generator-products', 'wp_dummy_content_generatorProducts');
-    add_submenu_page ( 'wp_dummy_content_generator-dashboard', 'Thumbnails', 'Thumbnails', 'read', 'wp_dummy_content_generator-thumbnails', 'wp_dummy_content_generatorThumbnails');
+    add_submenu_page ( 'wp_dummy_content_generator-dashboard', 'Generate Users', 'Generate Users', 'read', 'wp_dummy_content_generator-users', 'wp_dummy_content_generatorUsers');
+    add_submenu_page ( 'wp_dummy_content_generator-dashboard', 'Generate Posts', 'Generate Posts', 'read', 'wp_dummy_content_generator-posts', 'wp_dummy_content_generatorPosts');
+    add_submenu_page ( 'wp_dummy_content_generator-dashboard', 'Generate Products', 'Generate Products', 'read', 'wp_dummy_content_generator-products', 'wp_dummy_content_generatorProducts');
+    add_submenu_page ( 'wp_dummy_content_generator-dashboard', 'Manage Thumbnails', 'Manage Thumbnails', 'read', 'wp_dummy_content_generator-thumbnails', 'wp_dummy_content_generatorThumbnails');
 }
 function wp_dummy_content_generatorMainDashboard(){
     include( WP_PLUGIN_DIR.'/'.plugin_dir_path(wp_dummy_content_generator_PLUGIN_BASE_URL) . 'admin/template/wp_dummy_content_generator-dashboard.php');

@@ -114,4 +114,5 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 2.3.0 - Added post type product to dropdown if woocommerce is not installed and post type "product" is created.
 3.0.0 - Comes with numerous notable enhancements to performance and security.
 3.1.0 - Adjusted to be compatible with the significant update release of WooCommerce and WordPress
+3.1.1 - Revised menu item labels for enhanced clarity of meaning.
 == Upgrade Notice ==
