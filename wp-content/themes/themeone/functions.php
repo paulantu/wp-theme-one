@@ -30,6 +30,7 @@ function themeone_bootstraping(){
         "height" => 100, 
     );
     add_theme_support("custom-logo", $themeone_custom_logo_defaults);
+    add_theme_support("post-formats",  array('aside', 'quote', 'status', 'image', 'gallery', 'chat', 'link', 'audio', 'video'));
 }
 
 add_action("after_setup_theme", "themeone_bootstraping");
@@ -43,9 +44,12 @@ function themeone_assets(){
     wp_enqueue_style( 'style', get_stylesheet_uri(), null, VERSION );
     wp_enqueue_style("bootstrap", "//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
     wp_enqueue_style("fetherlight-css", "//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css");
+
+    wp_enqueue_style("dashicons");
     
 
     wp_enqueue_script("fetherlight-js", "//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js", array("jquery"), VERSION, true);
+
 }
 
 add_action("wp_enqueue_scripts", "themeone_assets");

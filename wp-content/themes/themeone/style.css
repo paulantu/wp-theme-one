@@ -89,3 +89,10 @@ body{
 .error-view{
     padding: 155px 0px;
 }
+
+
+.dashicons{
+    font-size: 100px;
+    color: #ccc;
+    margin-bottom: 40px;
+}
